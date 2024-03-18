@@ -45,6 +45,11 @@ class PostSeeder extends Seeder
         //     // ]);
         // }
 
-        
+        for($i=1; $i<=4; $i++){
+            DB::table('addresses')->insert([
+                'address' => fake()->address(),
+                'user_id' => $i
+            ]);
+        }
     }
 }

@@ -30,4 +30,13 @@ class Post extends Model
     //     'title'
     // ];
 
+    //ADDING ONE TO ONE INVERSE RELATIONSHIP TO USE IN CATEGORY MODEL
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
+    //MANY TO MANY RELATIONSHIP
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
 }

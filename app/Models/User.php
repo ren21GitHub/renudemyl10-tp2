@@ -42,4 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //ONE TO ONE RELATIONSHIP
+    public function userAddress(){
+        return $this->hasOne(Address::class);
+    }
+
+    
 }
