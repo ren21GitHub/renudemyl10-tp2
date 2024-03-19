@@ -10,7 +10,9 @@ use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Psy\Command\WhereamiCommand;
+use File;
 
 class HomeController extends Controller
 {
@@ -210,8 +212,16 @@ class HomeController extends Controller
             // $tag = Tag::first();
             // $post->tags()->attach([3,4]);
 
-            $posts = Post::with('tags')->get();
-            $tag = Tag::first();
-            return view('home', compact('posts'));
-        }
+            // $posts = Post::with('tags')->get();
+            // $tag = Tag::first();
+            // return view('home', compact('posts'));
+
+        //UPLOADING FILES IN STORAGE PART 1
+            return view('home');
+
+        // REMOVE FILES FROM STORAGE
+            // Storage::delete('/images/logo1.jpg');//use this because its shorter
+            // File::delete(storage_path('/app/public/images/logo2.png'));
+            // unlink(storage_path('/app/public/images/logo3.jpg'));
+    }
 }

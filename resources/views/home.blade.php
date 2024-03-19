@@ -77,7 +77,7 @@
   </div> --}}
 
   {{-- MANY TO MANY RELATIONSHIP --}}
-  <div class="row">
+  {{-- <div class="row">
     @foreach ($posts as $post)
     <div class="col-md-4 mt-5 mb-5">
       <div class="card">
@@ -93,6 +93,35 @@
       </div>
     </div>
     @endforeach
+  </div> --}}
+
+  {{-- STORAGE LINK --}}
+  <img src="{{asset('/storage/images/new_image.jpg')}}" alt="">
+
+  {{-- UPLOADING FILES IN STORAGE PART 1&2--}}
+  <div class="col-md-4 mt-5">
+
+    {{-- VALIDATING UPLOADED FILES --}}
+  @if ($errors->any())
+    @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">{{$error}}</div>
+    @endforeach 
+  @endif
+
+    <div class="card">
+      <div class="card-body">
+        <form action="{{route('upload-file')}}" method="POST" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+            <label for="" class="">Upload</label>
+            <input type="file" name="image" class="form-control">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success mt-2">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </main>
 @endsection
