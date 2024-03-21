@@ -16,8 +16,19 @@ class ImageController extends Controller
 
         //VALIDATING UPLOADED FILES
         $request->validate([
-            'image' => ['required', 'min:100', 'max:500', 'mimes:png, jpg, gif']
+            'image' => ['required', 'max:500', 'mimes:png, jpg, gif']
         ]);
         $request->image->storeAs('/images', 'new_image.jpg');
+
+        //REDIRECT RESPONSE
+            // return redirect()->back();
+            // return redirect()->route('success');
+            return redirect('/success');
+    }
+
+    // RETURNING FILE TO DOWNLOAD
+    public function download()
+    {
+        return response()->download(public_path('/storage/images/logo2.jpg'));
     }
 }

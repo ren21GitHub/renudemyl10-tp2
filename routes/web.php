@@ -29,5 +29,13 @@ Route::get('/home', HomeController::class);
 //UPLOADING FILE IN STORAGE PART 1&2
 Route::post('/upload-file', [ImageController::class, 'handleImage'])->name('upload-file');
 
+//REDIRECTING RESPONSE
+Route::get('/success', function(){
+    return '<h1>Successfully Uploaded</h1>';
+})->name('success');
+
+//RETURNING FILE TO DOWNLOAD
+Route::get('/download', [ImageController::class, 'download'])->name('download');
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');

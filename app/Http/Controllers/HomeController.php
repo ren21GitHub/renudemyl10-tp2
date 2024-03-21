@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Psy\Command\WhereamiCommand;
 use File;
+use Illuminate\Http\Client\ResponseSequence;
 
 class HomeController extends Controller
 {
@@ -217,11 +218,20 @@ class HomeController extends Controller
             // return view('home', compact('posts'));
 
         //UPLOADING FILES IN STORAGE PART 1
-            return view('home');
+            // return view('home');
 
         // REMOVE FILES FROM STORAGE
             // Storage::delete('/images/logo1.jpg');//use this because its shorter
             // File::delete(storage_path('/app/public/images/logo2.png'));
             // unlink(storage_path('/app/public/images/logo3.jpg'));
+
+        // RETURN RESPONSE JSON
+                // $posts = Post::all();
+
+                // return response()->json($posts);
+                // return response($posts);
+
+        
+        return view('home');
     }
 }

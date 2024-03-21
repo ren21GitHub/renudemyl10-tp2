@@ -123,6 +123,8 @@
       </div>
     </div>
   </div>
+
+  <a class="btn btn-primary mt-2" href="{{route('download')}}">Download Image</a>
 </main>
 @endsection
 
